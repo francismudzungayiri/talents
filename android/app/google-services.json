@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "159604434571",
+    "project_id": "simba-fe214",
+    "storage_bucket": "simba-fe214.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:159604434571:android:fa3c2955908b8fd0f4d68e",
+        "android_client_info": {
+          "package_name": "com.example.talents"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "159604434571-qh4kqmuc0cn8avi9k4isl2h4v6ao63ku.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAviGCfABbFnBHGKDvIDUcfte7WKgXMZFI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "159604434571-qh4kqmuc0cn8avi9k4isl2h4v6ao63ku.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
