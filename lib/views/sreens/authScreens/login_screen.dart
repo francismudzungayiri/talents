@@ -3,16 +3,47 @@ import 'package:flutter/material.dart';
 import 'package:talents/constants.dart';
 import 'package:talents/controllers/auth_controller.dart';
 import 'package:talents/views/sreens/authScreens/register_screen.dart';
-import 'package:talents/views/sreens/donator/d_login.dart';
 import 'package:talents/views/widgets/text_input_field.dart';
 
+class Login extends StatefulWidget {
+  const Login({ Key? key }) : super(key: key);
+     
+  @override
+  State<Login> createState() => _LoginState();
+}
 
-class Login extends StatelessWidget {
-   Login({ Key? key }) : super(key: key);
+class _LoginState extends State<Login> {
 
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
+  Color beneficiaryCardColor = backgroundColor;
+  Color entertainmentCardColor = backgroundColor;
+
+// 1= beneficiary, 2= Entertainment
+  void updateColor(int accountType) {
+    if (accountType == 1) {
+      if (beneficiaryCardColor == backgroundColor) {
+        beneficiaryCardColor = activeCardColor;
+      } else {
+        beneficiaryCardColor = backgroundColor;
+      }
+    }
+    if (accountType == 2) {
+      if (entertainmentCardColor == backgroundColor) {
+        entertainmentCardColor = activeCardColor;
+      } else {
+        entertainmentCardColor = backgroundColor;
+      }
+    }
+
+    if(entertainmentCardColor == activeCardColor){
+      beneficiaryCardColor= backgroundColor;
+    }else if( beneficiaryCardColor == activeCardColor){
+      entertainmentCardColor = backgroundColor;
+    }else{}
+  }
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,11 +64,13 @@ class Login extends StatelessWidget {
              const Text(
             'Login',
             style: TextStyle(
+              color:activeCardColor,
               fontSize: 25,
               fontWeight: FontWeight.w700,
             ),
           ),
-          const SizedBox(height: 25),
+          const SizedBox(height: 30),
+          
           Container(
             width: MediaQuery.of(context).size.width,
             margin: const EdgeInsets.symmetric(horizontal: 20),
@@ -69,10 +102,17 @@ class Login extends StatelessWidget {
               )
             ),
             child: InkWell(
-               onTap: () => authController.loginUser(
-                _emailController.text,
-                _passwordController.text,
-              ),
+               onTap: () {
+                 if(_emailController.text != 'admin@gmail.com'){
+                   authController.loginUser(
+                    _emailController.text,
+                    _passwordController.text,
+                  );
+                 }else{
+                   authController.adminSignIn(_emailController.text, _passwordController.text);
+                 }
+
+               },
               child: const Center(
                 child: Text(
                   'Login',

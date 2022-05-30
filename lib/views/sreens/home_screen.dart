@@ -22,29 +22,25 @@ class _HomeScreenState extends State<HomeScreen> {
           });
         },
         type: BottomNavigationBarType.fixed,
-        backgroundColor: backgroundColor,
+        backgroundColor: activeCardColor,
         selectedItemColor: buttonColor,
         unselectedItemColor: borderColor,
         currentIndex: pageIdx,
         items: const [
           BottomNavigationBarItem(
-            icon: Icon(Icons.home, size: 30),
+            icon: Icon(Icons.home, size: 25),
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.search, size: 30),
+            icon: Icon(Icons.search, size: 25),
             label: 'Search',
           ),
           BottomNavigationBarItem(
             icon: CustomIcon(),
-            label: '',
+            label: 'Post',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.message, size: 30),
-            label: 'Inbox',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person, size: 30),
+            icon: Icon(Icons.person, size: 25),
             label: 'Profile',
           ),
         ],

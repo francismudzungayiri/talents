@@ -39,12 +39,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
           return Scaffold(
             appBar: AppBar(
               backgroundColor: Colors.black12,
-              leading: const Icon(
-                Icons.person_add_alt_1_outlined,
+              leading: IconButton(
+                icon: const Icon(Icons.person_add,), 
+              onPressed: () { 
+                authController.beneficiary_screen(); 
+               },
               ),
-              actions: const [
-                Icon(Icons.more_horiz),
-              ],
               title: Text(
                 controller.user['name'],
                 style: const TextStyle(
@@ -60,9 +60,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     SizedBox(
                       child: Column(
                         children: [
+                          const SizedBox(height: 25),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
+                              const SizedBox(height: 25),
                               ClipOval(
                                 child: CachedNetworkImage(
                                   fit: BoxFit.cover,

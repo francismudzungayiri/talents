@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:talents/constants.dart';
 import 'package:talents/controllers/video_controller.dart';
 import 'package:talents/views/sreens/comment_screen.dart';
+import 'package:talents/views/sreens/payment_Screen.dart';
 import 'package:talents/views/widgets/circle_animation.dart';
 import 'package:talents/views/widgets/video_player_iten.dart';
 import 'package:video_player/video_player.dart';
@@ -156,6 +157,31 @@ class VideoScreen extends StatelessWidget {
                                 Column(
                                   children: [
                                     InkWell(
+                                      onTap: () => Navigator.of(context).push(
+                                        MaterialPageRoute(
+                                          builder: (context) => const Payment()
+                                        ),
+                                      ),
+                                      child: const Icon(
+                                        Icons.payment,
+                                        size: 40,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                    const SizedBox(height: 7),
+                                    const Text(
+                                      'Donate',
+                                      style: TextStyle(
+                                        fontSize: 20,
+                                        color: Colors.white,
+                                      ),
+                                    )
+                                  ],
+                                ),
+
+                                Column(
+                                  children: [
+                                    InkWell(
                                       onTap: () =>
                                           videoController.likeVideo(data.id),
                                       child: Icon(
@@ -203,26 +229,7 @@ class VideoScreen extends StatelessWidget {
                                     )
                                   ],
                                 ),
-                                Column(
-                                  children: [
-                                    InkWell(
-                                      onTap: () {},
-                                      child: const Icon(
-                                        Icons.reply,
-                                        size: 40,
-                                        color: Colors.white,
-                                      ),
-                                    ),
-                                    const SizedBox(height: 7),
-                                    Text(
-                                      data.shareCount.toString(),
-                                      style: const TextStyle(
-                                        fontSize: 20,
-                                        color: Colors.white,
-                                      ),
-                                    )
-                                  ],
-                                ),
+                                
                                 CircleAnimation(
                                   child: buildMusicAlbum(data.profilePhoto),
                                 ),

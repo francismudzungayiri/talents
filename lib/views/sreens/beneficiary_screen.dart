@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:talents/constants.dart';
-import 'package:talents/controllers/d_userController.dart';
+import 'package:talents/controllers/auth_controller.dart';
 import 'package:talents/views/sreens/authScreens/login_screen.dart';
 import 'package:talents/views/widgets/text_input_field.dart';
 
-class Register extends StatelessWidget {
-  Register({Key? key}) : super(key: key);
+class BeneficiaryInfo extends StatelessWidget {
+  BeneficiaryInfo({Key? key}) : super(key: key);
 
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _usernameController = TextEditingController();
 
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,34 +32,11 @@ class Register extends StatelessWidget {
                 ),
                 const SizedBox(height: 20),
                 const Text(
-                  'Register',
+                  'For donations add more info',
                   style: TextStyle(
                     fontSize: 25,
                     fontWeight: FontWeight.w700,
                   ),
-                ),
-                const SizedBox(height: 25),
-                Stack(
-                  children: [
-                    const CircleAvatar(
-                      radius: 64,
-                      backgroundImage: NetworkImage(
-                          'https://www.pngitem.com/pimgs/m/150-1503945_transparent-user-png-default-user-image-png-png.png'),
-                      backgroundColor: Colors.black38,
-                    ),
-                    Positioned(
-                      bottom: -10,
-                      left: 80,
-                      child: IconButton(
-                        onPressed: () {
-                          donatorAuthController.pickImage();
-                        },
-                        icon: const Icon(
-                          Icons.add_a_photo,
-                        ),
-                      ),
-                    ),
-                  ],
                 ),
                 const SizedBox(height: 25),
                 Container(
@@ -66,8 +44,8 @@ class Register extends StatelessWidget {
                   margin: const EdgeInsets.symmetric(horizontal: 20),
                   child: TextInput(
                     controller: _usernameController,
-                    label: 'username',
-                    icon: Icons.person,
+                    label: 'ID Number',
+                    icon: Icons.add_card,
                   ),
                 ),
                 const SizedBox(height: 25),
@@ -76,8 +54,8 @@ class Register extends StatelessWidget {
                   margin: const EdgeInsets.symmetric(horizontal: 20),
                   child: TextInput(
                     controller: _emailController,
-                    label: 'Email',
-                    icon: Icons.email,
+                    label: 'Home address',
+                    icon: Icons.location_city,
                   ),
                 ),
                 const SizedBox(height: 25),
@@ -86,9 +64,50 @@ class Register extends StatelessWidget {
                   margin: const EdgeInsets.symmetric(horizontal: 20),
                   child: TextInput(
                     controller: _passwordController,
-                    label: 'Password',
-                    icon: Icons.lock,
-                    isObscure: true,
+                    label: 'Phone Nmber',
+                    icon: Icons.phone,
+                    
+                  ),
+                ),
+                 const SizedBox(height: 25),
+                Container(
+                  width: MediaQuery.of(context).size.width,
+                  margin: const EdgeInsets.symmetric(horizontal: 20),
+                  child: TextInput(
+                    controller: _emailController,
+                    label: 'Occupation',
+                    icon: Icons.join_full,
+                  ),
+                ),
+                const SizedBox(height: 25),
+                Container(
+                  width: MediaQuery.of(context).size.width,
+                  margin: const EdgeInsets.symmetric(horizontal: 20),
+                  child: TextInput(
+                    controller: _passwordController,
+                    label: 'Gender',
+                    icon: Icons.male,
+                  ),
+                ),
+                 const SizedBox(height: 25),
+                Container(
+                  width: MediaQuery.of(context).size.width,
+                  margin: const EdgeInsets.symmetric(horizontal: 20),
+                  child: TextInput(
+                    controller: _emailController,
+                    label: 'Archievements',
+                    icon: Icons.book
+                  ),
+                ),
+                const SizedBox(height: 25),
+                Container(
+                  width: MediaQuery.of(context).size.width,
+                  margin: const EdgeInsets.symmetric(horizontal: 20),
+                  child: TextInput(
+                    controller: _passwordController,
+                    label: 'Diability',
+                    icon: Icons.sick_outlined,
+                    
                   ),
                 ),
                 const SizedBox(height: 35),
@@ -101,12 +120,7 @@ class Register extends StatelessWidget {
                         Radius.circular(5),
                       )),
                   child: InkWell(
-                    onTap: () => donatorAuthController.registerUser(
-                      _usernameController.text,
-                      _emailController.text,
-                      _passwordController.text,
-                      donatorAuthController.profilePhoto,
-                    ),
+                    onTap: () => authController.addMoreInfo(),
                     child: const Center(
                       child: Text(
                         'Register',
@@ -117,28 +131,6 @@ class Register extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 30),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const Text(
-                      'Already have an account? ',
-                      style: TextStyle(
-                        fontSize: 20,
-                      ),
-                    ),
-                    InkWell(
-                      onTap: () => Navigator.of(context).push(
-                        MaterialPageRoute(
-                          builder: (context) => Login(),
-                        ),
-                      ),
-                      child: const Text(
-                        'Login',
-                        style: TextStyle(fontSize: 20, color: buttonColor),
-                      ),
-                    )
-                  ],
-                )
               ],
             ),
           ),

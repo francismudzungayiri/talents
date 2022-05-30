@@ -43,8 +43,8 @@ class Register extends StatelessWidget {
                 const CircleAvatar(
                   radius: 64,
                   backgroundImage: NetworkImage(
-                      'https://www.pngitem.com/pimgs/m/150-1503945_transparent-user-png-default-user-image-png-png.png'),
-                  backgroundColor: Colors.black38,
+                      'https://png.pngitem.com/pimgs/s/146-1468479_my-profile-icon-blank-profile-picture-circle-hd.png'),
+                  backgroundColor: Color.fromARGB(96, 80, 80, 80),
                 ),
                 Positioned(
                   bottom: -10,
